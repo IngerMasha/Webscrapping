@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz</title>
+</head>
+<body>
+    <h1>Simple JavaScript Quiz</h1>
+    <form id="quiz-form">
+        <p>1. What is the capital of France?</p>
+        <input type="radio" name="q1" value="London"> London<br>
+        <input type="radio" name="q1" value="Paris"> Paris<br>
+        <input type="radio" name="q1" value="Rome"> Rome<br>
+
+        <p>2. Which language is used for web apps?</p>
+        <input type="radio" name="q2" value="Python"> Python<br>
+        <input type="radio" name="q2" value="JavaScript"> JavaScript<br>
+        <input type="radio" name="q2" value="C++"> C++<br>
+
+        <p>3. What does HTML stand for?</p>
+        <input type="radio" name="q3" value="Hyper Trainer Marking Language"> Hyper Trainer Marking Language<br>
+        <input type="radio" name="q3" value="Hyper Text Markup Language"> Hyper Text Markup Language<br>
+        <input type="radio" name="q3" value="Hyper Text Marketing Language"> Hyper Text Marketing Language<br>
+
+        <button type="button" onclick="checkAnswers()">Submit Quiz</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: "Paris",
+                q2: "JavaScript",
+                q3: "Hyper Text Markup Language"
+            };
+
+            let score = 0;
+            const form = document.getElementById('quiz-form');
+
+            for (let question in answers) {
+                const userAnswer = form.elements[question].value;
+                if (userAnswer === answers[question]) {
+                    score++;
+                }
+            }
+
+            document.getElementById('result').innerText = `You scored ${score} out of 3!`;
+        }
+    </script>
+</body>
+</html>
