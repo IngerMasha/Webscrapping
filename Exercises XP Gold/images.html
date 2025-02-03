@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Image Gallery</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #main-image {
+            width: 500px;
+            height: auto;
+            margin: 20px 0;
+        }
+        .thumbnail {
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+            margin: 5px;
+            border: 2px solid transparent;
+        }
+        .thumbnail:hover {
+            border: 2px solid #333;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <img id="main-image" src="image1.jpg" alt="Main Image">
+    <div>
+        <button onclick="prevImage()">Previous</button>
+        <button onclick="nextImage()">Next</button>
+    </div>
+    <div>
+        <img class="thumbnail" src="image1.jpg" alt="Thumbnail 1" onclick="showImage(0)">
+        <img class="thumbnail" src="image2.jpg" alt="Thumbnail 2" onclick="showImage(1)">
+        <img class="thumbnail" src="image3.jpg" alt="Thumbnail 3" onclick="showImage(2)">
+    </div>
+
+    <script>
+        const images = ["image1.jpg", "image2.jpg", "image3.jpg"];
+        let currentIndex = 0;
+
+        function showImage(index) {
+            currentIndex = index;
+            document.getElementById('main-image').src = images[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById('main-image').src = images[currentIndex];
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            document.getElementById('main-image').src = images[currentIndex];
+        }
+    </script>
+</body>
+</html>
