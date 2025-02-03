@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Data Type Display</title>
+</head>
+<body>
+    <h1>Check the Console for Data Types</h1>
+
+    <script>
+        let myString = "Hello, JavaScript!";
+        let myNumber = 42;
+        let myBoolean = true;
+        let myUndefined;
+        let myNull = null;
+
+        console.log("Value:", myString, "Type:", typeof myString);
+        console.log("Value:", myNumber, "Type:", typeof myNumber);
+        console.log("Value:", myBoolean, "Type:", typeof myBoolean);
+        console.log("Value:", myUndefined, "Type:", typeof myUndefined);
+        console.log("Value:", myNull, "Type:", typeof myNull);
+    </script>
+</body>
+</html>
